@@ -25,7 +25,7 @@ async function ask(question, cb) {
 
 async function checkForChanges(cb) {
   exec(
-    "git init; git remote add spruce https://github.com/dan-divy/spruce; git fetch spruce; git rev-list HEAD...spruce/project-oak; git remote remove spruce",
+    "git init; git remote add spruce https://github.com/roxyboxxy/vrsocial; git fetch vrsocial; git rev-list HEAD...spruce/project-oak; git remote remove spruce",
     function(err, data) {
       if (!data || err) return cb(err || true);
       else cb(false, data.split("\n"));
@@ -35,7 +35,7 @@ async function checkForChanges(cb) {
 
 async function installUpdates(cb) {
   exec(
-    "git remote add spruce https://github.com/dan-divy/spruce; git fetch spruce; git stash; git pull spruce project-oak; git stash apply; git remote remove spruce",
+    "git remote add vrsocial https://github.com/roxyboxxy/vrsocial; git fetch vrsocial; git stash; git pull vrsocial project-oak; git stash apply; git remote remove spruce",
     function(err) {
       if (err) return cb(err).catch(cb);
       cb(null, true);
