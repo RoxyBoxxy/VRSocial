@@ -14,7 +14,7 @@
 <div class="gram-card">
     <div class="gram-card-header">
       <img src="${ obj.user.profile_pic }?cache=${ Math.random() }" class="gram-card-user-image lozad">
-      <a class="gram-card-user-name" href="/u/${ obj.post.authorID }">${ obj.post.author }</a>
+      <a class="gram-card-user-name" href="/u/${ obj.post.author }">${ obj.post.author }</a>
 
             <div class="dropdown gram-card-time">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-option-vertical"></i></a>
@@ -48,7 +48,6 @@
       <p><a class="gram-card-content-user" href="/u/${ obj.post.author}">${ obj.post.author}</a>
         ${ obj.post.caption }
         <span class="label label-info">${ obj.post.category }</span>
-        <a id="nsfw_msg ${ obj.post.nsfw }">This image is NSFW, Click the image to view</a>
 
      </p>
 

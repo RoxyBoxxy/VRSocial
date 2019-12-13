@@ -19,9 +19,11 @@
     <div class="container">
       <img src="<%= user.profile_pic %>" class="logo">
       <a class="gram-card-user-name" href="">@<%= user.username %></a>
-      (<%= user.fistname %> <%= user.lastname %>)
+     
       <br><br>
-        <span class="bio"><%- user.bio %></span>
+        Bio: <span class="bio"><%- user.bio %></span>
+      <br>
+        Discord: <span class="bio"><%- user.discord %></span>
       <br><br>
       <div class="float-right margin-right-10">
 
@@ -38,7 +40,7 @@
     <div class="container">
       <center>
       <% for(var x=0;x<user.posts.length;x++) { %>
-        <img src="<% if(user.posts[x].static_url) { %><%= user.posts[x].static_url %><% } else {%>/images/logo/logo.png<% } %>" class="feed-view-img">
+        <img src="<% if(user.posts[x].static_url) { %><%= user.posts[x].static_url %><% } else {%>/images/logo/logo.png<% } %>" class="feed-view-img <%- user.posts[x].nsfw %>">
       <% } %>
       </center>
     </div>

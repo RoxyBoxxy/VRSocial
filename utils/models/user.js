@@ -16,7 +16,9 @@ var userSchema = mongoose.Schema({
     chat_rooms:Array, // ["1234", "3456"]
     lastLogin:String, // 10 min ago
     notifications:Array, // [{msg:"New message from @user", link:"/chat/user"}]
-    developer:Boolean // true or false
+    developer:Boolean, // true or false
+    nsfw:Boolean, // This is for nsfw settings
+    discord:String 
 });
 
 // methods ======================

@@ -9,7 +9,7 @@ var ig = require("../../../config/instagram");
 var g = require("../../../config/google");
 var formidable = require("formidable");
 var fs = require("file-system");
-
+console.log
 router.post("/v1/comment", function(req, res, next) {
   db.comment(
     { username: req.body.author },

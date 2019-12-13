@@ -20,15 +20,20 @@
   	<h2><%= message %></h2>
   	<%= error.status %>
  	<br>
- 	<p class="container-fluid"> <code> <!-- <%= error.stack %> --> </code></p> 
+ 	<p class="container-fluid"> <code> <%= error.stack %> </code></p> 
   </div>
   <div id="notify_message" class="notify_message-success">
   	<center>You are now a part of spruce!</center>
   </div>
+  <audio controls autoplay style="
+    visibility: hidden;
+">
+  <source src="/audio/error.ogg" type="audio/ogg">
+</audio>
   <%- include('footer') -%>
   </body>
   <script type="text/javascript">
-    show_notification('Page not found!','danger')
+    show_notification('What are you doing step bro?','danger')
   </script>
 
 </html>

@@ -9,10 +9,18 @@
     <div class="container" style="margin-bottom: 15%">
         <h1>Your settings</h1><br>
         <img style="display: inline; border-radius: 50%; width: 20%" src="<%= user.profile_pic %>?cache=<%= Math.random() %>" id="pfp"><input id="fileUpload" onchange="upload(this.id)" style="margin-top: 5%;margin-bottom: 5%;width: 70%;display: inline;margin-left: 10%;" type="file" name="file" class="form-control">
+        <label class="text-muted">Username</label>
         <input type="text" onchange="change(this.value, 'Username')" class="form-control" style="margin-top: 5%" value="<%= user.username %>"  placeholder="Username">
+        <label class="text-muted">First Name</label>
         <input type="text" onchange="change(this.value, 'First Name')" class="form-control" style="margin-top: 5%; width: 49.5%; display: inline" value="<%= user.firstname %>" placeholder="First name">
+        <label class="text-muted">Last Name</label>
         <input type="text" onchange="change(this.value, 'Last Name')" class="form-control" style="margin-top: 5%; width: 50%; display: inline" value="<%= user.lastname %>"  placeholder="Last name">
+        <label class="text-muted">Bio</label>
         <input type="text" onchange="change(this.value, 'Bio')" class="form-control" style="margin-top: 5%" value="<%= user.bio %>" placeholder="Bio">
+        <label class="text-muted">Discord</label>
+        <input type="text" onchange="change(this.value, 'Discord')" class="form-control" style="margin-top: 5%" value="<%= user.discord %>"  placeholder="Discord">
+        <label class="text-muted">View NSFW Content all the time</label>
+        <input class="form-control" type="checkbox" onchange="change(this.checked, 'nsfw')" <% if (user.nsfw) { %>checked<% } %>> Your current setting is set to<a><%= user.nsfw %></a><br>
     </div>
 
 
@@ -48,6 +56,7 @@
       });
     }
     function change(value, key) {
+      console.log(value);
         $.ajax({
             method: 'POST',
             url: '/api/v1/user/set',
@@ -55,10 +64,13 @@
                 "_id":_id,
                 key: key.toLowerCase().replace(' ', ''),
                 value
+
             }
+
         })
         .done(function(data){
             show_notification(key + ' changed to ' + value.toString().slice(0, 80), 'success')
+            console.log(value);
         })
         .fail(function(data){
             show_notification(data.responseText, 'error')  
